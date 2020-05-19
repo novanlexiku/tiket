@@ -24,13 +24,24 @@ class Tiket extends CI_Controller{
         echo "Halaman tidak ditemukan";
     }
 	}
+	//Fungsi edit/tambah tiket
 	function edit_kmptiket(){
 	if($this->session->userdata('user_level')=='1'){
 		$kode=$this->input->post('kode');
 		$kmp=$this->input->post('kmp');
 		$linid=$this->input->post('lintasan');
-		$tiket=$this->input->post('tiket');
-		$this->m_kmptiket->update_kmptiket($kode,$kmp,$linid,$tiket);
+		$tiketaa=$this->input->post('tiketaa');
+		$tiketdw=$this->input->post('tiketdw');
+		$tiketgol1=$this->input->post('tiketgol1');
+		$tiketgol2=$this->input->post('tiketgol2');
+		$tiketgol3=$this->input->post('tiketgol3');
+		$tiketgol4=$this->input->post('tiketgol4');
+		$tiketgol5=$this->input->post('tiketgol5');
+		$tiketgol6=$this->input->post('tiketgol6');
+		$tiketgol7=$this->input->post('tiketgol7');
+		$tiketgol8=$this->input->post('tiketgol8');
+		$tiketgol9=$this->input->post('tiketgol9');
+		$this->m_kmptiket->update_kmptiket($kode,$kmp,$linid,$tiketaa,$tiketdw,$tiketgol1,$tiketgol2,$tiketgol3,$tiketgol4,$tiketgol5,$tiketgol6,$tiketgol7,$tiketgol8,$tiketgol9);
 		echo $this->session->set_flashdata('msg','editkmp');
 		redirect('admin/tiket');
 	}else{
