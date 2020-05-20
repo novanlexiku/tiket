@@ -21,14 +21,27 @@
     </div>
     <!-- Page content -->
     <div class="container-fluid mt--7">
-
       <div class="row mt-5">
         <div class="col-xl-12 mb-5 mb-xl-0">
-          <div class="card shadow">
+		<!-- Tab table -->
+		<div class="nav-wrapper">
+			<ul class="nav nav-pills nav-fill flex-column flex-md-row" id="tabs-icons-text" role="tablist">
+				<li class="nav-item">
+					<a class="nav-link mb-sm-3 mb-md-0 active" id="tabs-icons-text-1-tab" data-toggle="tab" href="#tabs-icons-text-1" role="tab" aria-controls="tabs-icons-text-1" aria-selected="true"><i class="ni ni-curved-next mr-2"></i>Penumpang</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link mb-sm-3 mb-md-0" id="tabs-icons-text-2-tab" data-toggle="tab" href="#tabs-icons-text-2" role="tab" aria-controls="tabs-icons-text-2" aria-selected="false"><i class="ni ni-bus-front-12 mr-2"></i>Kendaraan</a>
+				</li>
+				
+			</ul>
+		</div>
+		<div class="card shadow">
+			<div class="card-body">
+				<div class="tab-content" id="myTabContent">
+					<div class="tab-pane fade show active" id="tabs-icons-text-1" role="tabpanel" aria-labelledby="tabs-icons-text-1-tab">
+					<div class="card shadow">
             <div class="card-header border-0">
               <h2 class="mb-0">Daftar Stok Tiket KMP</h3>
-                
-
             </div>
             <div class="table-responsive">
               <table class="table table-bordered table-condensed" style="font-size:11px;" id="mydata">
@@ -36,8 +49,66 @@
                     <tr>
                         <th scope="col" style="text-align:center;width:40px;">No</th>
                         <th scope="col">KMP</th>
-												<th scope="col">Anak</th>
-												<th scope="col">Dewasa</th>
+												<th scope="col">Ekonomi Anak</th>
+												<th scope="col">Ekonomi Dewasa</th>
+												<th scope="col">Bisnis Anak</th>
+												<th scope="col">Bisnis Dewasa</th>
+												<th scope="col">VIP Anak</th>
+												<th scope="col">VIP Dewasa</th>
+												
+                        <th scope="col" style="width:140px;text-align:center;">Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <?php
+                    $no=0;
+                    foreach ($data->result_array() as $a):
+                        $no++;
+                        $id=$a['kmp_id'];
+						$nm=$a['kmp_nama'];
+						$linid=$a['kmp_lintasan_id'];
+						$linam=$a['lintasan_nama'];
+						$tiketekoaa=$a['kmp_tiketekoaa'];
+						$tiketekodw=$a['kmp_tiketekodw'];
+						$tiketbisaa=$a['kmp_tiketbisaa'];
+						$tiketbisdw=$a['kmp_tiketbisdw'];
+						$tiketvipaa=$a['kmp_tiketvipaa'];
+						$tiketvipdw=$a['kmp_tiketvipdw'];
+						
+                ?>
+                    <tr>
+                        <td style="text-align:center;"><?php echo $no;?></td>
+                        <td><?php echo $nm;?> - <?php echo $linam;?></td>
+												<td><?php echo $tiketekoaa;?></td>
+												<td><?php echo $tiketekodw;?></td>
+												<td><?php echo $tiketbisaa;?></td>
+												<td><?php echo $tiketbisdw;?></td>
+												<td><?php echo $tiketvipaa;?></td>
+												<td><?php echo $tiketvipdw;?></td>
+
+												
+                        <td style="text-align:center;">
+                            <a class="btn btn-success btn-sm" href="#modalEditKMP<?php echo $id?>" data-toggle="modal" title="Tambah"><span class="ni ni-fat-add"></span> Tambah</a>
+                        </td>
+                    </tr>
+                <?php endforeach;?>
+                </tbody>
+            </table>
+
+          </div>
+          </div>
+					</div>
+					<div class="tab-pane fade" id="tabs-icons-text-2" role="tabpanel" aria-labelledby="tabs-icons-text-2-tab">
+					<div class="card shadow">
+            <div class="card-header border-0">
+              <h2 class="mb-0">Daftar Stok Tiket KMP</h3>
+            </div>
+            <div class="table-responsive">
+              <table class="table table-bordered table-condensed" style="font-size:11px;" id="mydata">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col" style="text-align:center;width:40px;">No</th>
+                        <th scope="col">KMP</th>
 												<th scope="col">Gol.1</th>
 												<th scope="col">Gol.2</th>
 												<th scope="col">Gol.3</th>
@@ -59,8 +130,6 @@
 						$nm=$a['kmp_nama'];
 						$linid=$a['kmp_lintasan_id'];
 						$linam=$a['lintasan_nama'];
-						$tiketaa=$a['kmp_tiketaa'];
-						$tiketdw=$a['kmp_tiketdw'];
 						$tiketgol1=$a['kmp_tiketgol1'];
 						$tiketgol2=$a['kmp_tiketgol2'];
 						$tiketgol3=$a['kmp_tiketgol3'];
@@ -74,8 +143,6 @@
                     <tr>
                         <td style="text-align:center;"><?php echo $no;?></td>
                         <td><?php echo $nm;?> - <?php echo $linam;?></td>
-												<td><?php echo $tiketaa;?></td>
-												<td><?php echo $tiketdw;?></td>
 												<td><?php echo $tiketgol1;?></td>
 												<td><?php echo $tiketgol2;?></td>
 												<td><?php echo $tiketgol3;?></td>
@@ -95,6 +162,12 @@
 
           </div>
           </div>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+          
         </div>
 
       </div>
@@ -106,8 +179,12 @@
 						$nm=$a['kmp_nama'];
 						$linid=$a['kmp_lintasan_id'];
 						$linam=$a['lintasan_nama'];
-						$tiketaa=$a['kmp_tiketaa'];
-						$tiketdw=$a['kmp_tiketdw'];
+						$tiketekoaa=$a['kmp_tiketekoaa'];
+						$tiketekodw=$a['kmp_tiketekodw'];
+						$tiketbisaa=$a['kmp_tiketbisaa'];
+						$tiketbisdw=$a['kmp_tiketbisdw'];
+						$tiketvipaa=$a['kmp_tiketvipaa'];
+						$tiketvipdw=$a['kmp_tiketvipdw'];
 						$tiketgol1=$a['kmp_tiketgol1'];
 						$tiketgol2=$a['kmp_tiketgol2'];
 						$tiketgol3=$a['kmp_tiketgol3'];
@@ -147,13 +224,13 @@
 														</div>
 														<!-- Divider -->
 														<hr class="mt-1">
-														<h4>Penumpang :</h4>
+														<h4>Penumpang Ekonomi:</h4>
 														<div class="row">
 															<div class="col-lg-6">
 																<div class="form-group">
 																		<label class="control-label" >Anak-Anak</label>
 																		<div>
-																			<input name="tiketaa" class="form-control" type="number" min="0" value="<?php echo $tiketaa;?>" required>
+																			<input name="tiketekoaa" class="form-control" type="number" min="0" value="<?php echo $tiketekoaa;?>" required>
 																		</div>
 																</div>
 															</div>
@@ -161,7 +238,49 @@
 																<div class="form-group">
 																		<label class="control-label" >Dewasa</label>
 																		<div>
-																			<input name="tiketdw" class="form-control" type="number" min="0" value="<?php echo $tiketdw;?>" required>
+																			<input name="tiketekodw" class="form-control" type="number" min="0" value="<?php echo $tiketekodw;?>" required>
+																		</div>
+																</div>
+															</div>
+														</div>
+														<!-- Divider -->
+														<hr class="mt-1">
+														<h4>Penumpang Bisnis:</h4>
+														<div class="row">
+															<div class="col-lg-6">
+																<div class="form-group">
+																		<label class="control-label" >Anak-Anak</label>
+																		<div>
+																			<input name="tiketbisaa" class="form-control" type="number" min="0" value="<?php echo $tiketbisaa;?>" required>
+																		</div>
+																</div>
+															</div>
+															<div class="col-lg-6">
+																<div class="form-group">
+																		<label class="control-label" >Dewasa</label>
+																		<div>
+																			<input name="tiketbisdw" class="form-control" type="number" min="0" value="<?php echo $tiketbisdw;?>" required>
+																		</div>
+																</div>
+															</div>
+														</div>
+														<!-- Divider -->
+														<hr class="mt-1">
+														<h4>Penumpang VIP:</h4>
+														<div class="row">
+															<div class="col-lg-6">
+																<div class="form-group">
+																		<label class="control-label" >Anak-Anak</label>
+																		<div>
+																			<input name="tiketvipaa" class="form-control" type="number" min="0" value="<?php echo $tiketvipaa;?>" required>
+																		</div>
+																</div>
+															</div>
+															<div class="col-lg-6">
+																<div class="form-group">
+																		<label class="control-label" >Dewasa</label>
+																		<div>
+																			<input name="tiketvipdw" class="form-control" type="number" min="0" value="<?php echo $tiketvipdw;?>" required>
 																		</div>
 																</div>
 															</div>

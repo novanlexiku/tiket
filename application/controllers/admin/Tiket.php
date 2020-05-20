@@ -30,8 +30,12 @@ class Tiket extends CI_Controller{
 		$kode=$this->input->post('kode');
 		$kmp=$this->input->post('kmp');
 		$linid=$this->input->post('lintasan');
-		$tiketaa=$this->input->post('tiketaa');
-		$tiketdw=$this->input->post('tiketdw');
+		$tiketekoaa=$this->input->post('tiketekoaa');
+		$tiketekodw=$this->input->post('tiketekodw');
+		$tiketbisaa=$this->input->post('tiketbisaa');
+		$tiketbisdw=$this->input->post('tiketbisdw');
+		$tiketvipaa=$this->input->post('tiketvipaa');
+		$tiketvipdw=$this->input->post('tiketvipdw');
 		$tiketgol1=$this->input->post('tiketgol1');
 		$tiketgol2=$this->input->post('tiketgol2');
 		$tiketgol3=$this->input->post('tiketgol3');
@@ -41,7 +45,7 @@ class Tiket extends CI_Controller{
 		$tiketgol7=$this->input->post('tiketgol7');
 		$tiketgol8=$this->input->post('tiketgol8');
 		$tiketgol9=$this->input->post('tiketgol9');
-		$this->m_kmptiket->update_kmptiket($kode,$kmp,$linid,$tiketaa,$tiketdw,$tiketgol1,$tiketgol2,$tiketgol3,$tiketgol4,$tiketgol5,$tiketgol6,$tiketgol7,$tiketgol8,$tiketgol9);
+		$this->m_kmptiket->update_kmptiket($kode,$kmp,$linid,$tiketekoaa,$tiketekodw,$tiketbisaa,$tiketbisdw,$tiketvipaa,$tiketvipdw,$tiketgol1,$tiketgol2,$tiketgol3,$tiketgol4,$tiketgol5,$tiketgol6,$tiketgol7,$tiketgol8,$tiketgol9);
 		echo $this->session->set_flashdata('msg','editkmp');
 		redirect('admin/tiket');
 	}else{
