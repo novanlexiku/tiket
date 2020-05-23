@@ -114,6 +114,7 @@
                         $id=$a['kmp_id'];
 						$nm=$a['kmp_nama'];
 						$linid=$a['kmp_lintasan_id'];
+						
                     ?>
                 <div id="modalEditKMP<?php echo $id?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
                     <div class="modal-dialog">
@@ -143,6 +144,7 @@
                                 </select>
                         </div>
                     </div>
+																		
 
                 </div>
                         <div class="modal-footer">

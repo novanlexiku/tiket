@@ -7,7 +7,8 @@ class M_kmp extends CI_Model{
 	}
 
 	function update_kmp($kode,$kmp,$linid){
-		$hsl=$this->db->query("UPDATE tbl_kmp set kmp_nama='$kmp', kmp_lintasan_id='$linid' where kmp_id='$kode'");
+		$hsl=$this->db->query("UPDATE tbl_kmp set kmp_nama='$kmp', kmp_lintasan_id='$linid'
+		where kmp_id='$kode'");
 		return $hsl;
 	}
 
@@ -22,7 +23,7 @@ class M_kmp extends CI_Model{
 	}
 
 	function simpan_kmp($kmp,$linid,$tiket){
-		$hsl=$this->db->query("INSERT INTO tbl_kmp(kmp_nama,kmp_lintasan_id,kmp_tiket) VALUES ('$kmp','$linid','$tiket')");
+		$hsl=$this->db->query("INSERT INTO tbl_kmp(kmp_nama,kmp_lintasan_id) VALUES ('$kmp','$linid')");
 		return $hsl;
 	}
 

@@ -41,6 +41,7 @@ class Kmp extends CI_Controller{
 		$kode=$this->input->post('kode');
 		$kmp=$this->input->post('kmp');
 		$linid=$this->input->post('lintasan');
+		
 		$this->m_kmp->update_kmp($kode,$kmp,$linid);
 		echo $this->session->set_flashdata('msg','editkmp');
 		redirect('admin/kmp');
