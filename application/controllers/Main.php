@@ -12,18 +12,24 @@
 	        };
 			
 			$this->load->library('datatables');
+			$this->load->model('m_kmptiket');
 		}
 		public function index()
 		{
 			if($this->session->userdata('user_level')=='1'|| $this->session->userdata('user_level')=='2'){
+				$x = array (
+					'data' => $this->m_kmptiket->tampil_kmptiket(),
+				  'lintasan'=>    $this->m_kmptiket->tampil_lintasan()
+				  
+				);
 				$title = array(
 		      'title' => 'Dashboard'
 			    );
 
 				$this->load->view('nav/header',$title);
-				$this->load->view('admin/v_index');
+				$this->load->view('admin/v_index',$x);
 			}else{
-				$this->load->view('admin/v_index');
+				$this->load->view('admin/v_index',$x);
 				}
 		}
 		

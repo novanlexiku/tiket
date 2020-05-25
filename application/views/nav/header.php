@@ -59,7 +59,7 @@
 			</h6>
 			<ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="#">
+              <a class="nav-link" href="<?php echo base_url().'penumpang';?>">
                 <i class="ni ni-curved-next text-orange"></i>
                 <span class="nav-link-text">Penumpang</span>
               </a>
