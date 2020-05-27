@@ -49,10 +49,10 @@
                     <tr>
                         <th scope="col" style="text-align:center;width:40px;">No</th>
                         <th scope="col">KMP</th>
-												<th scope="col">Ekonomi Anak</th>
-												<th scope="col">Ekonomi Dewasa</th>
-												<th scope="col">Bisnis Anak</th>
-												<th scope="col">Bisnis Dewasa</th>
+												<th scope="col">Eko. Anak</th>
+												<th scope="col">Eko. Dewasa</th>
+												<th scope="col">Bis. Anak</th>
+												<th scope="col">Bis. Dewasa</th>
 												<th scope="col">VIP Anak</th>
 												<th scope="col">VIP Dewasa</th>
 												

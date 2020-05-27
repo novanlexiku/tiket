@@ -27,7 +27,7 @@ class P_penumpang extends CI_Controller{
 	function tambah_penumpang(){
 		if($this->session->userdata('user_level')=='1'|| $this->session->userdata('user_level')=='2'){
 			$kode=$this->input->post('kode');
-			$noseri=$this->m_penumpang->get_serial();
+			
 			$nama=$this->input->post('nama');
 			$alamat=$this->input->post('alamat');
 			$usia=$this->input->post('usia');
@@ -37,12 +37,38 @@ class P_penumpang extends CI_Controller{
 			$kmp=$this->input->post('nama_kapal');
 			$lintasan=$this->input->post('lintasan');
 			$passport=$this->input->post('passport');
-			if($usia>'12'&&$jt=='Eko'){
-				$jtekodw='1';
-			}elseif($usia<'12'&&$jt=='Eko'){
-				$jtekoaa='1';
+			if($jt=='Ekonomi Anak'){
+				$noseri=$this->m_penumpang->get_serial_eko_anak();
 			}
-			$this->m_penumpang->simpan_penumpang($kode,$noseri,$nama,$alamat,$usia,$jk,$tgl,$jt,$kmp,$lintasan,$jtekodw,$jtekoaa,$passport);
+			elseif($jt=='Ekonomi Dewasa'){
+				$noseri=$this->m_penumpang->get_serial_eko_dewasa();
+			}
+			elseif($jt=='Bisnis Anak'){
+				$noseri=$this->m_penumpang->get_serial_bis_anak();
+			}
+			elseif($jt=='Bisnis Dewasa'){
+				$noseri=$this->m_penumpang->get_serial_bis_dewasa();
+			}
+			elseif($jt=='Vip Anak'){
+				$noseri=$this->m_penumpang->get_serial_vip_anak();
+			}
+			elseif($jt=='Vip Dewasa'){
+				$noseri=$this->m_penumpang->get_serial_vip_dewasa();
+			}
+			if($usia>'12'&&$jt=='Ekonomi Dewasa'){
+				$jtekodw='1';
+			}elseif($usia<'12'&&$jt=='Ekonomi Anak'){
+				$jtekoaa='1';
+			}elseif($usia>'12'&&$jt=='Bisnis Dewasa'){
+				$jtbisdw='1';
+			}elseif($usia<'12'&&$jt=='Bisnis Anak'){
+				$jtbisaa='1';
+			}elseif($usia>'12'&&$jt=='Vip Dewasa'){
+				$jtvipdw='1';
+			}elseif($usia<'12'&&$jt=='Vip Anak'){
+				$jtvipaa='1';
+			}
+			$this->m_penumpang->simpan_penumpang($kode,$noseri,$nama,$alamat,$usia,$jk,$tgl,$jt,$kmp,$lintasan,$jtekodw,$jtekoaa,$jtbisdw,$jtbisaa,$jtvipdw,$jtvipaa,$passport);
 			 echo $this->session->set_flashdata('msg','tambahpenumpang');
 			redirect('penumpang');
 		}else{

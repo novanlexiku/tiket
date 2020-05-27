@@ -189,9 +189,13 @@
 									<div class="form-group">
 										<label class="form-control-label" for="input-kelamin">Jenis Tiket</label>
 										<select name="jenis_tiket" class="form-control" placeholder="" required>
-										<option value="Eko">Ekonomi</option>
-										<option value="Bis">Bisnis</option>
-										<option value="Vip">VIP</option>
+										<option value="">Pilih Jenis Tiket</option>
+										<option value="Ekonomi Anak">Ekonomi Anak</option>
+										<option value="Ekonomi Dewasa">Ekonomi Dewasa</option>
+										<option value="Bisnis Anak">Bisnis Anak</option>
+										<option value="Bisnis Dewasa">Bisnis Dewasa</option>
+										<option value="Vip Anak">VIP Anak</option>
+										<option value="Vip Dewasa">VIP Dewasa</option>
 										</select>
 									</div>
 									</div>
