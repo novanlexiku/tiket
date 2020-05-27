@@ -12,6 +12,34 @@ class M_penumpang extends CI_Model{
 		return $hsl;
 	}
 
-	
+	function simpan_penumpang($kode,$noseri,$nama,$alamat,$usia,$jk,$tgl,$jt,$kmp,$lintasan,$jtekodw,$jtekoaa,$passport){
+
+		$hsl=
+		$this->db->trans_start();
+		$this->db->query("INSERT INTO tbl_penumpang(penumpang_no_seri,penumpang_nama,penumpang_alamat,penumpang_usia,penumpang_jk,penumpang_kmp_nama,tanggal,penumpang_passport) VALUES ('$noseri','$nama','$alamat','$usia','$jk','$kmp :$lintasan','$tgl','$passport')");
+		$this->db->query("update tbl_kmp set kmp_tiketekodw=kmp_tiketekodw-'$jtekodw' where kmp_id='$kode'");
+		$this->db->query("update tbl_kmp set kmp_tiketekoaa=kmp_tiketekoaa-'$jtekoaa' where kmp_id='$kode'");
+		$this->db->trans_complete(); 
+		return $hsl;
+	}
+
+	function get_penumpang($noseri){
+		$hsl=$this->db->query("SELECT * FROM tbl_penumpang where penumpang_no_seri='$noseri'");
+		return $hsl;
+	}
+
+	function get_serial(){
+		$q = $this->db->query("SELECT MAX(RIGHT(penumpang_no_seri,6)) AS kd_max FROM tbl_penumpang");
+        $kd = "";
+        if($q->num_rows()>0){
+            foreach($q->result() as $k){
+                $tmp = ((int)$k->kd_max)+1;
+                $kd = sprintf("%06s", $tmp);
+            }
+        }else{
+            $kd = "000001";
+        }
+        return "PN".$kd;
+	}
 
 }

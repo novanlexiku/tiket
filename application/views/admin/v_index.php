@@ -54,8 +54,11 @@
                     </div>
                   </div>
                   <p class="mt-3 mb-0 text-sm">
-                    <span class="text-nowrap"><button type="button" class="btn btn-outline-info btn-sm" data-toggle="modal" data-target="#exampleModal">
-											Detail
+                    <span class="text-nowrap"><button type="button" class="btn btn-outline-info btn-sm" data-toggle="modal" data-target="#exampleModal<?php echo $id?>">
+											Penumpang
+										</button></span>
+										<span class="text-nowrap"><button type="button" class="btn btn-outline-info btn-sm" data-toggle="modal" data-target="#exampleModal2<?php echo $id?>">
+											Kendaraan
 										</button></span>
                   </p>
                 </div>
@@ -88,7 +91,7 @@
 						$tiketgol8=$a['kmp_tiketgol8'];
 						$tiketgol9=$a['kmp_tiketgol9'];
                     ?>
-					<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+					<div class="modal fade" id="exampleModal<?php echo $id?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 						<div class="modal-dialog modal-dialog-centered" role="document">
 							<div class="modal-content">
 								<div class="modal-header">
@@ -113,6 +116,87 @@
 									<p class="mt-3 mb-0 text-sm">
                     <span class="text-success mr-2"><i class="fa fa-arrow-right"></i> <?php echo $tiketbisdw;?></span>
                     <span class="text-nowrap">Tiket Bisnis Dewasa</span>
+                  </p>
+									
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<?php
+        }
+        ?>
+					<!-- end modal -->
+					<!-- Modal -->
+					<?php
+                    foreach ($data->result_array() as $a) {
+                        $id=$a['kmp_id'];
+						$nm=$a['kmp_nama'];
+						$linid=$a['kmp_lintasan_id'];
+						$linam=$a['lintasan_nama'];
+						$tiketekoaa=$a['kmp_tiketekoaa'];
+						$tiketekodw=$a['kmp_tiketekodw'];
+						$tiketbisaa=$a['kmp_tiketbisaa'];
+						$tiketbisdw=$a['kmp_tiketbisdw'];
+						$tiketvipaa=$a['kmp_tiketvipaa'];
+						$tiketvipdw=$a['kmp_tiketvipdw'];
+						$tiketgol1=$a['kmp_tiketgol1'];
+						$tiketgol2=$a['kmp_tiketgol2'];
+						$tiketgol3=$a['kmp_tiketgol3'];
+						$tiketgol4=$a['kmp_tiketgol4'];
+						$tiketgol5=$a['kmp_tiketgol5'];
+						$tiketgol6=$a['kmp_tiketgol6'];
+						$tiketgol7=$a['kmp_tiketgol7'];
+						$tiketgol8=$a['kmp_tiketgol8'];
+						$tiketgol9=$a['kmp_tiketgol9'];
+                    ?>
+					<div class="modal fade" id="exampleModal2<?php echo $id?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+						<div class="modal-dialog modal-dialog-centered" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title" id="exampleModalLabel"><?php echo $nm;?>: <?php echo $linam;?></h5>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+								</div>
+								<div class="modal-body">
+									<p class="mt-3 mb-0 text-sm">
+                    <span class="text-success mr-2"><i class="fa fa-arrow-right"></i> <?php echo $tiketgol1;?></span>
+                    <span class="text-nowrap">Kendaraan Golongan I</span>
+                  </p>
+									<p class="mt-3 mb-0 text-sm">
+                    <span class="text-success mr-2"><i class="fa fa-arrow-right"></i> <?php echo $tiketgol2;?></span>
+                    <span class="text-nowrap">Kendaraan Golongan II</span>
+                  </p>
+									<p class="mt-3 mb-0 text-sm">
+                    <span class="text-success mr-2"><i class="fa fa-arrow-right"></i> <?php echo $tiketgol3;?></span>
+                    <span class="text-nowrap">Kendaraan Golongan III</span>
+                  </p>
+									<p class="mt-3 mb-0 text-sm">
+                    <span class="text-success mr-2"><i class="fa fa-arrow-right"></i> <?php echo $tiketgol4;?></span>
+                    <span class="text-nowrap">Kendaraan Golongan IV</span>
+                  </p>
+									<p class="mt-3 mb-0 text-sm">
+                    <span class="text-success mr-2"><i class="fa fa-arrow-right"></i> <?php echo $tiketgol5;?></span>
+                    <span class="text-nowrap">Kendaraan Golongan V</span>
+                  </p>
+									<p class="mt-3 mb-0 text-sm">
+                    <span class="text-success mr-2"><i class="fa fa-arrow-right"></i> <?php echo $tiketgol6;?></span>
+                    <span class="text-nowrap">Kendaraan Golongan VI</span>
+                  </p>
+									<p class="mt-3 mb-0 text-sm">
+                    <span class="text-success mr-2"><i class="fa fa-arrow-right"></i> <?php echo $tiketgol7;?></span>
+                    <span class="text-nowrap">Kendaraan Golongan VII</span>
+                  </p>
+									<p class="mt-3 mb-0 text-sm">
+                    <span class="text-success mr-2"><i class="fa fa-arrow-right"></i> <?php echo $tiketgol8;?></span>
+                    <span class="text-nowrap">Kendaraan Golongan VIII</span>
+                  </p>
+									<p class="mt-3 mb-0 text-sm">
+                    <span class="text-success mr-2"><i class="fa fa-arrow-right"></i> <?php echo $tiketgol9;?></span>
+                    <span class="text-nowrap">Kendaraan Golongan IX</span>
                   </p>
 									
 								</div>

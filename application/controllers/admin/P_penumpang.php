@@ -24,39 +24,30 @@ class P_penumpang extends CI_Controller{
         echo "Halaman tidak ditemukan";
     }
 	}
-	function tambah_kmp(){
-	if($this->session->userdata('user_level')=='1'){
-		$kmp=$this->input->post('kmp');
-		$linid=$this->input->post('lintasan');
-		$tiket="0";
-		$this->m_penumpang->simpan_kmp($kmp,$linid,$tiket);
-		echo $this->session->set_flashdata('msg','tambahkmp');
-		redirect('admin/p_penumpang');
-	}else{
-        echo "Halaman tidak ditemukan";
-    }
-	}
-	function edit_kmp(){
-	if($this->session->userdata('user_level')=='1'){
-		$kode=$this->input->post('kode');
-		$kmp=$this->input->post('kmp');
-		$linid=$this->input->post('lintasan');
-		
-		$this->m_penumpang->update_kmp($kode,$kmp,$linid);
-		echo $this->session->set_flashdata('msg','editkmp');
-		redirect('admin/p_penumpang');
-	}else{
-        echo "Halaman tidak ditemukan";
-    }
-	}
-	function hapus_kmp(){
-	if($this->session->userdata('user_level')=='1'){
-		$kode=$this->input->post('kode');
-		$this->m_penumpang->hapus_kmp($kode);
-		echo $this->session->set_flashdata('msg','hapuskmp');
-		redirect('admin/p_penumpang');
-	}else{
-        echo "Halaman tidak ditemukan";
-    }
-	}
+	function tambah_penumpang(){
+		if($this->session->userdata('user_level')=='1'|| $this->session->userdata('user_level')=='2'){
+			$kode=$this->input->post('kode');
+			$noseri=$this->m_penumpang->get_serial();
+			$nama=$this->input->post('nama');
+			$alamat=$this->input->post('alamat');
+			$usia=$this->input->post('usia');
+			$jk=$this->input->post('jenis_kelamin');
+			$tgl=$this->input->post('tgl');
+			$jt=$this->input->post('jenis_tiket');
+			$kmp=$this->input->post('nama_kapal');
+			$lintasan=$this->input->post('lintasan');
+			$passport=$this->input->post('passport');
+			if($usia>'12'&&$jt=='Eko'){
+				$jtekodw='1';
+			}elseif($usia<'12'&&$jt=='Eko'){
+				$jtekoaa='1';
+			}
+			$this->m_penumpang->simpan_penumpang($kode,$noseri,$nama,$alamat,$usia,$jk,$tgl,$jt,$kmp,$lintasan,$jtekodw,$jtekoaa,$passport);
+			 echo $this->session->set_flashdata('msg','tambahpenumpang');
+			redirect('penumpang');
+		}else{
+			echo "Halaman tidak ditemukan";
+		}
+		}
+	
 }
