@@ -16,7 +16,7 @@ class P_penumpang extends CI_Controller{
 		  
 		);
 		$title = array(
-      'title' => 'Halaman Pesan Penumpang' ,
+      'title' => 'Halaman Daftar Penumpang' ,
 	    );
 		$this->load->view('nav/header',$title);
 		$this->load->view('admin/v_psn_penumpang',$x);
@@ -27,7 +27,6 @@ class P_penumpang extends CI_Controller{
 	function tambah_penumpang(){
 		if($this->session->userdata('user_level')=='1'|| $this->session->userdata('user_level')=='2'){
 			$kode=$this->input->post('kode');
-			
 			$nama=$this->input->post('nama');
 			$alamat=$this->input->post('alamat');
 			$usia=$this->input->post('usia');

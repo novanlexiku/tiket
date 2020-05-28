@@ -65,7 +65,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
+              <a class="nav-link" href="<?php echo base_url().'p_kendaraan';?>">
                 <i class="ni ni-bus-front-12 text-primary"></i>
                 <span class="nav-link-text">Kendaraan</span>
               </a>

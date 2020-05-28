@@ -53,6 +53,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 //ADMIN ROUTE//
 $route['admin/beranda']		= 'Main';
 $route['penumpang']		= 'admin/p_penumpang';
+$route['p_kendaraan']		= 'admin/p_kendaraan';
 $route['pengguna']		= 'admin/pengguna';
 $route['kendaraan']		= 'admin/kendaraan';
 $route['lintasan']		= 'admin/lintasan';
