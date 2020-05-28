@@ -118,7 +118,7 @@
                     <div class="modal-dialog">
                     <div class="modal-content">
                     <div class="modal-header">
-                        <h3 class="modal-title" id="myModalLabel">Data Penumpang</h3>
+                        <h3 class="modal-title" id="myModalLabel">Data Kendaraan</h3>
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 
                     </div>
@@ -143,8 +143,16 @@
 								<div class="row">
 									<div class="col-md-12">
 									<div class="form-group">
-										<label class="form-control-label" for="input-nama">Nama Pemesan</label>
+										<label class="form-control-label" for="input-nama">Nama Pengemudi</label>
 										<input name="nama" class="form-control" type="text" placeholder="Masukkan Nama" required>
+									</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12">
+									<div class="form-group">
+										<label class="form-control-label" for="input-nama">Plat kendaraan</label>
+										<input name="plat" class="form-control" type="text" placeholder="Masukkan Plat Kendaraan" required>
 									</div>
 									</div>
 								</div>
@@ -192,24 +200,28 @@
 									</div>
 									<div class="col-lg-6">
 									<div class="form-group">
-										<label class="form-control-label" for="input-kelamin">Jenis Tiket</label>
-										<select name="jenis_tiket" class="form-control" placeholder="" required>
-										<option value="">Pilih Jenis Tiket</option>
-										<option value="Ekonomi Anak">Ekonomi Anak</option>
-										<option value="Ekonomi Dewasa">Ekonomi Dewasa</option>
-										<option value="Bisnis Anak">Bisnis Anak</option>
-										<option value="Bisnis Dewasa">Bisnis Dewasa</option>
-										<option value="Vip Anak">VIP Anak</option>
-										<option value="Vip Dewasa">VIP Dewasa</option>
+										<label class="form-control-label" for="input-kelamin">Golongan Kendaraan</label>
+										<select name="jenis_gol" class="form-control" placeholder="" required>
+										<option value="">Pilih Golongan</option>
+										<option value="Gol.1">Golongan I</option>
+										<option value="Gol.2">Golongan II</option>
+										<option value="Gol.3">Golongan III</option>
+										<option value="Gol.4">Golongan IV</option>
+										<option value="Gol.5">Golongan V</option>
+										<option value="Gol.6">Golongan VI</option>
+										<option value="Gol.7">Golongan VII</option>
+										<option value="Gol.8">Golongan VIII</option>
+										<option value="Gol.9">Golongan IX</option>
 										</select>
 									</div>
 									</div>
 								</div>
+								<hr class="my-2" />
 								<div class="row">
 									<div class="col-md-12">
 									<div class="form-group">
-										<label class="form-control-label" for="input-nama">Passport Penumpang Asing</label>
-										<input name="passport" class="form-control" type="text" placeholder="Masukkan Passport">
+										<label class="form-control-label" for="input-nama">Penumpang Lain</label>
+										<input name="penumpang_lain" class="form-control" type="text" placeholder="Masukkan Nama Penumpang Lain">
 									</div>
 									</div>
 								</div>
@@ -277,7 +289,7 @@
                      timer: 100,
                      template: '<div class="alert alert-success alert-dismissible fade show" role="alert">'+
                                          '<span class="alert-inner--icon"><i class="ni ni-like-2"></i></span>'+
-                                         '<span class="alert-inner--text"><strong>Berhasil! </strong> Tambah Penumpang </span>'+
+                                         '<span class="alert-inner--text"><strong>Berhasil! </strong> Tambah Data Kendaraan </span>'+
                                          '<button type="button" class="close" data-dismiss="alert" aria-label="Close">'+
                                          '<span aria-hidden="true">&times;</span>'+
                                          '</button>'+

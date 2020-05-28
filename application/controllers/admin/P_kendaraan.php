@@ -37,45 +37,47 @@ class P_kendaraan extends CI_Controller{
 			$kmp=$this->input->post('nama_kapal');
 			$lintasan=$this->input->post('lintasan');
 			$pl=$this->input->post('penumpang_lain');
-			if($jg=='Gol.I'){
+			if($jg=='Gol.1'){
 				$noseri=$this->m_p_kendaraan->get_serial_gol1();
-				$gol1=='1';
+				$gol1='1';
 			}
-			elseif($jg=='Gol.II'){
+			elseif($jg=='Gol.2'){
 				$noseri=$this->m_p_kendaraan->get_serial_gol2();
-				$gol2=='1';
+				$gol2='1';
 			}
-			elseif($jg=='Gol.III'){
+			elseif($jg=='Gol.3'){
 				$noseri=$this->m_p_kendaraan->get_serial_gol3();
-				$gol3=='1';
+				$gol3='1';
 			}
-			elseif($jg=='Gol.IV'){
+			elseif($jg=='Gol.4'){
 				$noseri=$this->m_p_kendaraan->get_serial_gol4();
-				$gol4=='1';
+				$gol4='1';
 			}
-			elseif($jg=='Gol.V'){
+			elseif($jg=='Gol.5'){
 				$noseri=$this->m_p_kendaraan->get_serial_gol5();
-				$gol5=='1';
+				$gol5='1';
 			}
-			elseif($jg=='Gol.VI'){
+			elseif($jg=='Gol.6'){
 				$noseri=$this->m_p_kendaraan->get_serial_gol6();
-				$gol6=='1';
+				$gol6='1';
 			}
-			elseif($jg=='Gol.VII'){
+			elseif($jg=='Gol.7'){
 				$noseri=$this->m_p_kendaraan->get_serial_gol7();
-				$gol7=='1';
+				$gol7='1';
 			}
-			elseif($jg=='Gol.VIII'){
+			elseif($jg=='Gol.8'){
 				$noseri=$this->m_p_kendaraan->get_serial_gol8();
-				$gol8=='1';
+				$gol8='1';
 			}
-			elseif($jg=='Gol.IX'){
+			elseif($jg=='Gol.9'){
 				$noseri=$this->m_p_kendaraan->get_serial_gol9();
-				$gol9=='1';
+				$gol9='1';
 			}
 			
-			$this->m_p_kendaraan->simpan_kendaraan($kode,$noseri,$nama,$alamat,$plat,$usia,$jk,$tgl,$jg,$kmp,$lintasan,$gol1,$gol2,$gol3,$gol4,$gol5,$gol6,$gol7,$gol8,$gol9,$pl);
-			 echo $this->session->set_flashdata('msg','tambahkendaraan');
+			
+			$this->m_p_kendaraan->simpan_kendaraan($kode,$noseri,$nama,$alamat,$plat,
+			$usia,$jk,$tgl,$jg,$kmp,$lintasan,$pl,$gol1,$gol2,$gol3,$gol4,$gol5,$gol6,$gol7);
+			echo $this->session->set_flashdata('msg','tambahkendaraan');
 			redirect('p_kendaraan');
 		}else{
 			echo "Halaman tidak ditemukan";
