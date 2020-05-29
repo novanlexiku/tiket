@@ -129,7 +129,7 @@
 											<div class="form-group">
 												<label class="form-control-label" for="input-level">Nama Kapal : <?php echo $nm;?></label>
 												<input name="kode" type="hidden" value="<?php echo $id;?>">
-												<input name="nama_kapal" type="hidden" value="<?php echo $nm;?>">
+												<input name="nama_kapal" type="hidden" value="<?php echo $id;?>">
 											</div>
 											</div>
 											<div class="col-lg-6">

@@ -9,7 +9,7 @@ class Kmp extends CI_Controller{
 		$this->load->model('m_kmp');
 	}
 	function index(){
-	if($this->session->userdata('user_level')=='1'){
+	if($this->session->userdata('user_level')=='1'|| $this->session->userdata('user_level')=='2'){
 		$x = array (
 			'data' => $this->m_kmp->tampil_kmp(),
 		  'lintasan'=>    $this->m_kmp->tampil_lintasan()
@@ -25,7 +25,7 @@ class Kmp extends CI_Controller{
     }
 	}
 	function tambah_kmp(){
-	if($this->session->userdata('user_level')=='1'){
+	if($this->session->userdata('user_level')=='1'|| $this->session->userdata('user_level')=='2'){
 		$kmp=$this->input->post('kmp');
 		$linid=$this->input->post('lintasan');
 		$tiket="0";
@@ -37,7 +37,7 @@ class Kmp extends CI_Controller{
     }
 	}
 	function edit_kmp(){
-	if($this->session->userdata('user_level')=='1'){
+	if($this->session->userdata('user_level')=='1'|| $this->session->userdata('user_level')=='2'){
 		$kode=$this->input->post('kode');
 		$kmp=$this->input->post('kmp');
 		$linid=$this->input->post('lintasan');
@@ -50,7 +50,7 @@ class Kmp extends CI_Controller{
     }
 	}
 	function hapus_kmp(){
-	if($this->session->userdata('user_level')=='1'){
+	if($this->session->userdata('user_level')=='1'|| $this->session->userdata('user_level')=='2'){
 		$kode=$this->input->post('kode');
 		$this->m_kmp->hapus_kmp($kode);
 		echo $this->session->set_flashdata('msg','hapuskmp');

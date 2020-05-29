@@ -9,7 +9,7 @@ class Tiket extends CI_Controller{
 		$this->load->model('m_kmptiket');
 	}
 	function index(){
-	if($this->session->userdata('user_level')=='1'){
+	if($this->session->userdata('user_level')=='1'|| $this->session->userdata('user_level')=='2'){
 		$x = array (
 			'data' => $this->m_kmptiket->tampil_kmptiket(),
 		  'lintasan'=>    $this->m_kmptiket->tampil_lintasan()
@@ -26,7 +26,7 @@ class Tiket extends CI_Controller{
 	}
 	//Fungsi edit/tambah tiket
 	function edit_kmptiket(){
-	if($this->session->userdata('user_level')=='1'){
+	if($this->session->userdata('user_level')=='1'|| $this->session->userdata('user_level')=='2'){
 		$kode=$this->input->post('kode');
 		$kmp=$this->input->post('kmp');
 		$linid=$this->input->post('lintasan');

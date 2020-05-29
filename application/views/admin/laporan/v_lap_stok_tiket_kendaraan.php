@@ -1,6 +1,6 @@
 <html lang="en" moznomarginboxes mozdisallowselectionprint>
 <head>
-    <title>Laporan Data Stok Tiket</title>
+    <title>Laporan Data Stok Tiket Penumpang</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="<?php echo base_url('assets/css/laporan.css')?>"/>
 </head>
@@ -14,7 +14,7 @@
 
 <table border="0" align="center" style="width:800px; border:none;margin-top:5px;margin-bottom:0px;">
 <tr>
-    <td colspan="2" style="width:800px;paddin-left:20px;"><center><h4>LAPORAN STOK TIKET PENUMPANG</h4></center><br/></td>
+    <td colspan="2" style="width:800px;paddin-left:20px;"><center><h4>LAPORAN STOK TIKET KENDARAAN</h4></center><br/></td>
 </tr>
 
 </table>
@@ -30,12 +30,15 @@
                     <tr>
                         <th scope="col" style="text-align:center;width:40px;">No</th>
                         <th scope="col">KMP</th>
-												<th scope="col">Eko. Anak</th>
-												<th scope="col">Eko. Dewasa</th>
-												<th scope="col">Bis. Anak</th>
-												<th scope="col">Bis. Dewasa</th>
-												<th scope="col">VIP Anak</th>
-												<th scope="col">VIP Dewasa</th>
+												<th scope="col">Golongan I</th>
+												<th scope="col">Golongan II</th>
+												<th scope="col">Golongan III</th>
+												<th scope="col">Golongan IV</th>
+												<th scope="col">Golongan V</th>
+												<th scope="col">Golongan VI</th>
+												<th scope="col">Golongan VII</th>
+												<th scope="col">Golongan VIII</th>
+												<th scope="col">Golongan IX</th>
 												
                     </tr>
                 </thead>
@@ -48,23 +51,29 @@
 						$nm=$a['kmp_nama'];
 						$linid=$a['kmp_lintasan_id'];
 						$linam=$a['lintasan_nama'];
-						$tiketekoaa=$a['kmp_tiketekoaa'];
-						$tiketekodw=$a['kmp_tiketekodw'];
-						$tiketbisaa=$a['kmp_tiketbisaa'];
-						$tiketbisdw=$a['kmp_tiketbisdw'];
-						$tiketvipaa=$a['kmp_tiketvipaa'];
-						$tiketvipdw=$a['kmp_tiketvipdw'];
+						$tiketgol1=$a['kmp_tiketgol1'];
+						$tiketgol2=$a['kmp_tiketgol2'];
+						$tiketgol3=$a['kmp_tiketgol3'];
+						$tiketgol4=$a['kmp_tiketgol4'];
+						$tiketgol5=$a['kmp_tiketgol5'];
+						$tiketgol6=$a['kmp_tiketgol6'];
+						$tiketgol7=$a['kmp_tiketgol7'];
+						$tiketgol8=$a['kmp_tiketgol8'];
+						$tiketgol9=$a['kmp_tiketgol9'];
 						
                 ?>
                     <tr>
                         <td style="text-align:center;"><?php echo $no;?></td>
                         <td><?php echo $nm;?> - <?php echo $linam;?></td>
-												<td><?php echo $tiketekoaa;?></td>
-												<td><?php echo $tiketekodw;?></td>
-												<td><?php echo $tiketbisaa;?></td>
-												<td><?php echo $tiketbisdw;?></td>
-												<td><?php echo $tiketvipaa;?></td>
-												<td><?php echo $tiketvipdw;?></td>
+												<td><?php echo $tiketgol1;?></td>
+												<td><?php echo $tiketgol2;?></td>
+												<td><?php echo $tiketgol3;?></td>
+												<td><?php echo $tiketgol4;?></td>
+												<td><?php echo $tiketgol5;?></td>
+												<td><?php echo $tiketgol6;?></td>
+												<td><?php echo $tiketgol7;?></td>
+												<td><?php echo $tiketgol8;?></td>
+												<td><?php echo $tiketgol9;?></td>
 
 												
                         

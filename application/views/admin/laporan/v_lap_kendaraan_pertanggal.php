@@ -1,6 +1,6 @@
 <html lang="en" moznomarginboxes mozdisallowselectionprint>
 <head>
-    <title>Laporan Penumpang Pertanggal</title>
+    <title>Laporan Kendaraan Pertanggal</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="<?php echo base_url('assets/css/laporan.css')?>"/>
 </head>
@@ -16,28 +16,27 @@
 ?>
 <table border="0" align="center" style="width:800px; border:none;margin-top:5px;margin-bottom:0px;">
 <tr>
-    <td colspan="2" style="width:800px;paddin-left:20px;"><center><h4>LAPORAN PENUMPANG TANGGAL : <?php echo $b['tanggal'];?></h4></center><br/></td>
+    <td colspan="2" style="width:800px;paddin-left:20px;"><center><h4>LAPORAN KENDARAAN TANGGAL : <?php echo $b['tanggal'];?></h4></center><br/></td>
 </tr>
 
 </table>
 
-<table border="1" align="center" style="width:900px;margin-bottom:20px;">
+<table border="1" align="center" style="width:1000px;margin-bottom:20px;">
 <thead>
-<tr>
-<th colspan="11" style="text-align:left;"></th>
-</tr>
+
     <tr>
         <th style="width:50px;">No</th>
         <th>No Seri Tiket</th>
-        <th>Nama Penumpang</th>
+        <th>Nama Kendaraan</th>
+		<th>Plat Kendaraan</th>
         <th>Alamat</th>
         <th>Usia</th>
         <th>Jenis Kelamin</th>
         <th>Nama Kapal</th>
-		<th>Lintasan</th>
-		<th>Jenis Tiket</th>
-		<th>Tanggal</th>
-        <th>No Passport</th>
+		<th style="width:80px;">Lintasan</th>
+		<th>Golongan</th>
+		<th style="width:100px;">Tanggal</th>
+        <th>Penumpang Lain</th>
     </tr>
 </thead>
 <tbody>
@@ -46,29 +45,31 @@ $no=0;
 								
     foreach ($data->result_array() as $i) {
         $no++;
-        $noseri=$i['penumpang_tiket_seri'];
-        $nama=$i['penumpang_nama'];
-        $alamat=$i['penumpang_alamat'];
-        $usia=$i['penumpang_usia'];
-        $jk=$i['penumpang_jk'];
+        $noseri=$i['kendaraan_tiket_seri'];
+		$nama=$i['kendaraan_nama_pengemudi'];
+		$plat=$i['kendaraan_plat_no'];
+        $alamat=$i['kendaraan_alamat'];
+        $usia=$i['kendaraan_usia'];
+        $jk=$i['kendaraan_jk'];
 		$kmp=$i['kmp_nama'];
 		$lin=$i['lintasan_nama'];
-		$tiket=$i['penumpang_tiket'];
+		$tiket=$i['kendaraan_golongan'];
 		$tgl=$i['tanggal'];
-        $pass=$i['penumpang_passport'];
+        $pass=$i['kendaraan_penumpang_lain'];
 ?>
     <tr>
         <td style="text-align:center;"><?php echo $no;?></td>
-        <td style="padding-left:5px;"><?php echo $noseri;?></td>
-        <td style="text-align:center;"><?php echo $nama;?></td>
-        <td style="text-align:center;"><?php echo $alamat;?></td>
+        <td style="text-align:left;"><?php echo $noseri;?></td>
+        <td style="text-align:left;"><?php echo $nama;?></td>
+		<td style="text-align:left;"><?php echo $plat;?></td>
+        <td style="text-align:left;"><?php echo $alamat;?></td>
         <td style="text-align:left;"><?php echo $usia;?></td>
         <td style="text-align:left;"><?php echo $jk;?></td>
         <td style="text-align:center;"><?php echo $kmp;?></td>
 		<td style="text-align:center;"><?php echo $lin;?></td>
-        <td style="text-align:center;"><?php echo $tiket;?></td>
-        <td style="text-align:right;"><?php echo $tgl;?></td>
-        <td style="text-align:right;"><?php echo $pass;?></td>
+        <td style="text-align:left;"><?php echo $tiket;?></td>
+        <td style="text-align:center;"><?php echo $tgl;?></td>
+        <td style="text-align:left;"><?php echo $pass;?></td>
     </tr>
 <?php }?>
 </tbody>

@@ -132,17 +132,17 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#" target="_blank">
+              <a class="nav-link" href="<?php echo base_url().'laporan_kendaraan';?>">
                 <i class="ni ni-spaceship"></i>
                 <span class="nav-link-text">Kendaraan</span>
               </a>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a class="nav-link" href="#" target="_blank">
                 <i class="ni ni-palette"></i>
                 <span class="nav-link-text">Lintasan</span>
               </a>
-            </li>
+            </li> -->
           </ul>
         </div>
       </div>

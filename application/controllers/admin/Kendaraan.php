@@ -9,7 +9,7 @@ class Kendaraan extends CI_Controller{
 		$this->load->model('m_kendaraan');
 	}
 	function index(){
-	if($this->session->userdata('user_level')=='1'){
+	if($this->session->userdata('user_level')=='1'|| $this->session->userdata('user_level')=='2'){
 		$data['data']=$this->m_kendaraan->tampil_kendaraan();
 		$title = array(
       'title' => 'Halaman Kendaraan' ,
@@ -21,7 +21,7 @@ class Kendaraan extends CI_Controller{
     }
 	}
 	function tambah_kendaraan(){
-	if($this->session->userdata('user_level')=='1'){
+	if($this->session->userdata('user_level')=='1'|| $this->session->userdata('user_level')=='2'){
 		$ken=$this->input->post('kendaraan');
 		$desk=$this->input->post('deskripsi');
 		$this->m_kendaraan->simpan_kendaraan($ken,$desk);
@@ -32,7 +32,7 @@ class Kendaraan extends CI_Controller{
     }
 	}
 	function edit_kendaraan(){
-	if($this->session->userdata('user_level')=='1'){
+	if($this->session->userdata('user_level')=='1'|| $this->session->userdata('user_level')=='2'){
 		$kode=$this->input->post('kode');
 		$ken=$this->input->post('kendaraan');
 		$desk=$this->input->post('deskripsi');
@@ -44,7 +44,7 @@ class Kendaraan extends CI_Controller{
     }
 	}
 	function hapus_kendaraan(){
-	if($this->session->userdata('user_level')=='1'){
+	if($this->session->userdata('user_level')=='1'|| $this->session->userdata('user_level')=='2'){
 		$kode=$this->input->post('kode');
 		$this->m_kendaraan->hapus_kendaraan($kode);
 		echo $this->session->set_flashdata('msg','hapuskendaraan');

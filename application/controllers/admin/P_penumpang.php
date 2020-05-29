@@ -9,7 +9,7 @@ class P_penumpang extends CI_Controller{
 		$this->load->model('m_penumpang');
 	}
 	function index(){
-	if($this->session->userdata('user_level')=='1'){
+	if($this->session->userdata('user_level')=='1'|| $this->session->userdata('user_level')=='2'){
 		$x = array (
 			'data' => $this->m_penumpang->tampil_kmp(),
 		  'lintasan'=>    $this->m_penumpang->tampil_lintasan()

@@ -9,7 +9,7 @@ class P_kendaraan extends CI_Controller{
 		$this->load->model('m_p_kendaraan');
 	}
 	function index(){
-	if($this->session->userdata('user_level')=='1'){
+	if($this->session->userdata('user_level')=='1'|| $this->session->userdata('user_level')=='2'){
 		$x = array (
 			'data' => $this->m_p_kendaraan->tampil_kmp(),
 		  'lintasan'=>    $this->m_p_kendaraan->tampil_lintasan()
@@ -35,7 +35,6 @@ class P_kendaraan extends CI_Controller{
 			$tgl=$this->input->post('tgl');
 			$jg=$this->input->post('jenis_gol');
 			$kmp=$this->input->post('nama_kapal');
-			$lintasan=$this->input->post('lintasan');
 			$pl=$this->input->post('penumpang_lain');
 			if($jg=='Gol.1'){
 				$noseri=$this->m_p_kendaraan->get_serial_gol1();
@@ -66,7 +65,7 @@ class P_kendaraan extends CI_Controller{
 			}
 			
 			
-			$this->m_p_kendaraan->simpan_kendaraan($kode,$noseri,$nama,$alamat,$plat,$usia,$jk,$tgl,$jg,$kmp,$lintasan,$pl);
+			$this->m_p_kendaraan->simpan_kendaraan($kode,$noseri,$nama,$alamat,$plat,$usia,$jk,$tgl,$jg,$kmp,$pl);
 			echo $this->session->set_flashdata('msg','tambahkendaraan');
 			redirect('p_kendaraan');
 		}else{

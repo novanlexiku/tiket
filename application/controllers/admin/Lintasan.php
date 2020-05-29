@@ -9,7 +9,7 @@ class Lintasan extends CI_Controller{
 		$this->load->model('m_lintasan');
 	}
 	function index(){
-	if($this->session->userdata('user_level')=='1'){
+	if($this->session->userdata('user_level')=='1'|| $this->session->userdata('user_level')=='2'){
 		$data['data']=$this->m_lintasan->tampil_lintasan();
 		$title = array(
       'title' => 'Halaman Lintasan' ,
@@ -21,7 +21,7 @@ class Lintasan extends CI_Controller{
     }
 	}
 	function tambah_lintasan(){
-	if($this->session->userdata('user_level')=='1'){
+	if($this->session->userdata('user_level')=='1'|| $this->session->userdata('user_level')=='2'){
 		$ken=$this->input->post('lintasan');
 		$desk=$this->input->post('jarak');
 		$this->m_lintasan->simpan_lintasan($ken,$desk);
@@ -32,7 +32,7 @@ class Lintasan extends CI_Controller{
     }
 	}
 	function edit_lintasan(){
-	if($this->session->userdata('user_level')=='1'){
+	if($this->session->userdata('user_level')=='1'|| $this->session->userdata('user_level')=='2'){
 		$kode=$this->input->post('kode');
 		$ken=$this->input->post('lintasan');
 		$desk=$this->input->post('jarak');
@@ -44,7 +44,7 @@ class Lintasan extends CI_Controller{
     }
 	}
 	function hapus_lintasan(){
-	if($this->session->userdata('user_level')=='1'){
+	if($this->session->userdata('user_level')=='1'|| $this->session->userdata('user_level')=='2'){
 		$kode=$this->input->post('kode');
 		$this->m_lintasan->hapus_lintasan($kode);
 		echo $this->session->set_flashdata('msg','hapuslintasan');

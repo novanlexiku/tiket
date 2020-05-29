@@ -12,12 +12,12 @@ class M_p_kendaraan extends CI_Model{
 		return $hsl;
 	}
 
-	function simpan_kendaraan($kode,$noseri,$nama,$alamat,$plat,$usia,$jk,$tgl,$jg,$kmp,$lintasan,$pl){
+	function simpan_kendaraan($kode,$noseri,$nama,$alamat,$plat,$usia,$jk,$tgl,$jg,$kmp,$pl){
 		
 		$hsl=
 		$this->db->trans_begin();
 		$this->db->trans_strict(FALSE);
-		$this->db->query("INSERT INTO tbl_p_kendaraan(kendaraan_tiket_seri,kendaraan_nama_pengemudi,kendaraan_plat_no,kendaraan_alamat,kendaraan_usia,kendaraan_jk,kendaraan_kmp_nama,kendaraan_golongan,tanggal,kendaraan_penumpang_lain) VALUES ('$noseri','$nama','$plat','$alamat','$usia','$jk','$kmp :$lintasan','$jg','$tgl','$pl')");
+		$this->db->query("INSERT INTO tbl_p_kendaraan(kendaraan_tiket_seri,kendaraan_nama_pengemudi,kendaraan_plat_no,kendaraan_alamat,kendaraan_usia,kendaraan_jk,kendaraan_kmp,kendaraan_golongan,tanggal,kendaraan_penumpang_lain) VALUES ('$noseri','$nama','$plat','$alamat','$usia','$jk','$kmp','$jg','$tgl','$pl')");
 		if($jg=='Gol.1'){
 			$gol1='1';
 			$this->db->query("update tbl_kmp set kmp_tiketgol1=kmp_tiketgol1-'$gol1' where kmp_id='$kode'");
