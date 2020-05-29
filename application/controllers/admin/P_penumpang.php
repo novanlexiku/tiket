@@ -34,7 +34,6 @@ class P_penumpang extends CI_Controller{
 			$tgl=$this->input->post('tgl');
 			$jt=$this->input->post('jenis_tiket');
 			$kmp=$this->input->post('nama_kapal');
-			$lintasan=$this->input->post('lintasan');
 			$passport=$this->input->post('passport');
 			if($jt=='Ekonomi Anak'){
 				$noseri=$this->m_penumpang->get_serial_eko_anak();
@@ -66,8 +65,8 @@ class P_penumpang extends CI_Controller{
 				$jtvipdw='1';
 			}elseif($usia<'12'&&$jt=='Vip Anak'){
 				$jtvipaa='1';
-			}
-			$this->m_penumpang->simpan_penumpang($kode,$noseri,$nama,$alamat,$usia,$jk,$tgl,$jt,$kmp,$lintasan,$jtekodw,$jtekoaa,$jtbisdw,$jtbisaa,$jtvipdw,$jtvipaa,$passport);
+			} 
+			$this->m_penumpang->simpan_penumpang($kode,$noseri,$nama,$alamat,$usia,$jk,$tgl,$jt,$kmp,$jtekodw,$jtekoaa,$jtbisdw,$jtbisaa,$jtvipdw,$jtvipaa,$passport);
 			 echo $this->session->set_flashdata('msg','tambahpenumpang');
 			redirect('penumpang');
 		}else{

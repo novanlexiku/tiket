@@ -126,7 +126,7 @@
           <!-- Navigation -->
           <ul class="navbar-nav mb-md-3">
 		  	<li class="nav-item">
-              <a class="nav-link" href="#" target="_blank">
+              <a class="nav-link" href="<?php echo base_url().'laporan_penumpang';?>">
                 <i class="ni ni-palette"></i>
                 <span class="nav-link-text">Penumpang</span>
               </a>
