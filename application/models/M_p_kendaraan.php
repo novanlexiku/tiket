@@ -12,16 +12,58 @@ class M_p_kendaraan extends CI_Model{
 		return $hsl;
 	}
 
-	function simpan_kendaraan($kode,$noseri,$nama,$alamat,$plat,$usia,$jk,$tgl,$jg,$kmp,$lintasan,$pl,$gol1,$gol2,$gol3,$gol4,$gol5,$gol6,$gol7){
-
+	function simpan_kendaraan($kode,$noseri,$nama,$alamat,$plat,$usia,$jk,$tgl,$jg,$kmp,$lintasan,$pl){
+		
 		$hsl=
 		$this->db->trans_begin();
 		$this->db->trans_strict(FALSE);
 		$this->db->query("INSERT INTO tbl_p_kendaraan(kendaraan_tiket_seri,kendaraan_nama_pengemudi,kendaraan_plat_no,kendaraan_alamat,kendaraan_usia,kendaraan_jk,kendaraan_kmp_nama,kendaraan_golongan,tanggal,kendaraan_penumpang_lain) VALUES ('$noseri','$nama','$plat','$alamat','$usia','$jk','$kmp :$lintasan','$jg','$tgl','$pl')");
-		$this->db->query("update tbl_kmp set kmp_tiketgol1=kmp_tiketgol1-'$gol1',kmp_tiketgol2=kmp_tiketgol2-'$gol2',kmp_tiketgol3=kmp_tiketgol3-'$gol3',kmp_tiketgol4=kmp_tiketgol4-'$gol4',kmp_tiketgol5=kmp_tiketgol5-'$gol5',kmp_tiketgol6=kmp_tiketgol6-'$gol6',kmp_tiketgol7=kmp_tiketgol7-'$gol7' where kmp_id='$kode'");
-		// , kmp_tiketgol8=kmp_tiketgol8-'$gol8'
-		// $this->db->query("update tbl_kmp set kmp_tiketgol9=kmp_tiketgol9-'$gol9' where kmp_id='$kode'");
+		if($jg=='Gol.1'){
+			$gol1='1';
+			$this->db->query("update tbl_kmp set kmp_tiketgol1=kmp_tiketgol1-'$gol1' where kmp_id='$kode'");
 
+		}
+		elseif($jg=='Gol.2'){
+			$gol2='1';
+			$this->db->query("update tbl_kmp set kmp_tiketgol2=kmp_tiketgol2-'$gol2' where kmp_id='$kode'");
+
+		}
+		elseif($jg=='Gol.3'){
+			$gol3='1';
+			$this->db->query("update tbl_kmp set kmp_tiketgol3=kmp_tiketgol3-'$gol3' where kmp_id='$kode'");
+
+		}
+		elseif($jg=='Gol.4'){
+			$gol4='1';
+			$this->db->query("update tbl_kmp set kmp_tiketgol4=kmp_tiketgol4-'$gol4' where kmp_id='$kode'");
+
+		}
+		elseif($jg=='Gol.5'){
+			$gol5='1';
+			$this->db->query("update tbl_kmp set kmp_tiketgol5=kmp_tiketgol5-'$gol5' where kmp_id='$kode'");
+
+		}
+		elseif($jg=='Gol.6'){
+			$gol6='1';
+			$this->db->query("update tbl_kmp set kmp_tiketgol6=kmp_tiketgol6-'$gol6' where kmp_id='$kode'");
+
+		}
+		elseif($jg=='Gol.7'){
+			$gol7='1';
+			$this->db->query("update tbl_kmp set kmp_tiketgol7=kmp_tiketgol7-'$gol7' where kmp_id='$kode'");
+
+		}
+		elseif($jg=='Gol.8'){
+			$gol8='1';
+			$this->db->query("update tbl_kmp set kmp_tiketgol8=kmp_tiketgol8-'$gol8' where kmp_id='$kode'");
+
+		}
+		elseif($jg=='Gol.9'){
+			$gol9='1';
+			$this->db->query("update tbl_kmp set kmp_tiketgol9=kmp_tiketgol9-'$gol9' where kmp_id='$kode'");
+
+		}
+		
 		$this->db->trans_complete(); 
 		return $hsl;
 	}

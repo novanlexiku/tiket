@@ -39,44 +39,34 @@ class P_kendaraan extends CI_Controller{
 			$pl=$this->input->post('penumpang_lain');
 			if($jg=='Gol.1'){
 				$noseri=$this->m_p_kendaraan->get_serial_gol1();
-				$gol1='1';
 			}
 			elseif($jg=='Gol.2'){
 				$noseri=$this->m_p_kendaraan->get_serial_gol2();
-				$gol2='1';
 			}
 			elseif($jg=='Gol.3'){
 				$noseri=$this->m_p_kendaraan->get_serial_gol3();
-				$gol3='1';
 			}
 			elseif($jg=='Gol.4'){
 				$noseri=$this->m_p_kendaraan->get_serial_gol4();
-				$gol4='1';
 			}
 			elseif($jg=='Gol.5'){
 				$noseri=$this->m_p_kendaraan->get_serial_gol5();
-				$gol5='1';
 			}
 			elseif($jg=='Gol.6'){
 				$noseri=$this->m_p_kendaraan->get_serial_gol6();
-				$gol6='1';
 			}
 			elseif($jg=='Gol.7'){
 				$noseri=$this->m_p_kendaraan->get_serial_gol7();
-				$gol7='1';
 			}
 			elseif($jg=='Gol.8'){
 				$noseri=$this->m_p_kendaraan->get_serial_gol8();
-				$gol8='1';
 			}
 			elseif($jg=='Gol.9'){
 				$noseri=$this->m_p_kendaraan->get_serial_gol9();
-				$gol9='1';
 			}
 			
 			
-			$this->m_p_kendaraan->simpan_kendaraan($kode,$noseri,$nama,$alamat,$plat,
-			$usia,$jk,$tgl,$jg,$kmp,$lintasan,$pl,$gol1,$gol2,$gol3,$gol4,$gol5,$gol6,$gol7);
+			$this->m_p_kendaraan->simpan_kendaraan($kode,$noseri,$nama,$alamat,$plat,$usia,$jk,$tgl,$jg,$kmp,$lintasan,$pl);
 			echo $this->session->set_flashdata('msg','tambahkendaraan');
 			redirect('p_kendaraan');
 		}else{
