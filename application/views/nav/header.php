@@ -41,7 +41,7 @@
       <div class="navbar-inner">
         <!-- Collapse -->
         <div class="collapse navbar-collapse" id="sidenav-collapse-main">
-			
+				<?php if ($this->session->userdata('user_level')=='1') { ?>
           <!-- Nav items -->
           <ul class="navbar-nav">
             <li class="nav-item">
@@ -144,6 +144,80 @@
               </a>
             </li> -->
           </ul>
+					<?php } elseif ($this->session->userdata('user_level')=='2') { ?>
+					<!-- Nav items -->
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="<?php echo base_url()?>">
+                <i class="ni ni-tv-2 text-primary"></i>
+                <span class="nav-link-text">Dashboard</span>
+              </a>
+			</li>
+			</ul>
+			<!-- Divider -->
+			<hr class="my-3">
+			<!-- Heading -->
+			<h6 class="navbar-heading p-0 text-muted">
+				<span class="docs-normal">E-Tiket</span>
+			</h6>
+			<ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="<?php echo base_url().'penumpang';?>">
+                <i class="ni ni-curved-next text-orange"></i>
+                <span class="nav-link-text">Penumpang</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="<?php echo base_url().'p_kendaraan';?>">
+                <i class="ni ni-bus-front-12 text-primary"></i>
+                <span class="nav-link-text">Kendaraan</span>
+              </a>
+            </li>
+		  </ul>
+		  <!-- Divider -->
+			<hr class="my-3">
+			<!-- Heading -->
+			<h6 class="navbar-heading p-0 text-muted">
+				<span class="docs-normal">Master Data</span>
+			</h6>
+			<ul class="navbar-nav">
+            
+						<li class="nav-item">
+              <a class="nav-link" href="<?php echo base_url().'tiket';?>">
+                <i class="ni ni-tag text-primary"></i>
+                <span class="nav-link-text">Stok Tiket</span>
+              </a>
+            </li>
+          </ul>
+         
+		  <!-- Divider -->
+			<hr class="my-3">
+          <!-- Heading -->
+          <h6 class="navbar-heading p-0 text-muted">
+            <span class="docs-normal">Laporan</span>
+          </h6>
+          <!-- Navigation -->
+          <ul class="navbar-nav mb-md-3">
+		  	<li class="nav-item">
+              <a class="nav-link" href="<?php echo base_url().'laporan_penumpang';?>">
+                <i class="ni ni-palette"></i>
+                <span class="nav-link-text">Penumpang</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="<?php echo base_url().'laporan_kendaraan';?>">
+                <i class="ni ni-spaceship"></i>
+                <span class="nav-link-text">Kendaraan</span>
+              </a>
+            </li>
+            <!-- <li class="nav-item">
+              <a class="nav-link" href="#" target="_blank">
+                <i class="ni ni-palette"></i>
+                <span class="nav-link-text">Lintasan</span>
+              </a>
+            </li> -->
+          </ul>
+					<?php } ?>
         </div>
       </div>
     </div>
