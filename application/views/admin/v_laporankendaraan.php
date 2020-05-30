@@ -174,7 +174,7 @@
       </footer>
     </div>
   </div>
-   <!-- Argon Scripts -->
+  <!-- Argon Scripts -->
   <!-- Core -->
   <script src="<?php echo base_url()?>assets/vendor/jquery/dist/jquery.min.js"></script>
   <script src="<?php echo base_url()?>assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
@@ -186,6 +186,7 @@
   <script src="<?php echo base_url()?>assets/vendor/chart.js/dist/Chart.extension.js"></script>
   <!-- Argon JS -->
   <script src="<?php echo base_url()?>assets/js/argon.js?v=1.2.0"></script>
+	
 
       <!-- Bootstrap Core JavaScript -->
   <script src="<?php echo base_url().'assets/dist/js/bootstrap-select.min.js'?>"></script>

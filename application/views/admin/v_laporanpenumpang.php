@@ -174,7 +174,7 @@
       </footer>
     </div>
   </div>
-   <!-- Argon Scripts -->
+  <!-- Argon Scripts -->
   <!-- Core -->
   <script src="<?php echo base_url()?>assets/vendor/jquery/dist/jquery.min.js"></script>
   <script src="<?php echo base_url()?>assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

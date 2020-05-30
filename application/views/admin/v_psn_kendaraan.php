@@ -203,15 +203,9 @@
 										<label class="form-control-label" for="input-kelamin">Golongan Kendaraan</label>
 										<select name="jenis_gol" class="form-control" placeholder="" required>
 										<option value="">Pilih Golongan</option>
-										<option value="Gol.1">Golongan I</option>
-										<option value="Gol.2">Golongan II</option>
-										<option value="Gol.3">Golongan III</option>
-										<option value="Gol.4">Golongan IV</option>
-										<option value="Gol.5">Golongan V</option>
-										<option value="Gol.6">Golongan VI</option>
-										<option value="Gol.7">Golongan VII</option>
-										<option value="Gol.8">Golongan VIII</option>
-										<option value="Gol.9">Golongan IX</option>
+										<?php foreach ($kendaraan->result() as $row) :?>
+                                         <option value="<?php echo $row->kendaraan_id;?>"><?php echo $row->kendaraan_nama;?></option>
+                                       <?php endforeach;?>
 										</select>
 									</div>
 									</div>

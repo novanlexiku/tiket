@@ -12,7 +12,8 @@ class P_kendaraan extends CI_Controller{
 	if($this->session->userdata('user_level')=='1'|| $this->session->userdata('user_level')=='2'){
 		$x = array (
 			'data' => $this->m_p_kendaraan->tampil_kmp(),
-		  'lintasan'=>    $this->m_p_kendaraan->tampil_lintasan()
+		  'lintasan'=>    $this->m_p_kendaraan->tampil_lintasan(),
+		  'kendaraan'=>  $this->m_p_kendaraan->tampil_kendaraan(),
 		  
 		);
 		$title = array(
@@ -36,31 +37,31 @@ class P_kendaraan extends CI_Controller{
 			$jg=$this->input->post('jenis_gol');
 			$kmp=$this->input->post('nama_kapal');
 			$pl=$this->input->post('penumpang_lain');
-			if($jg=='Gol.1'){
+			if($jg=='1'){
 				$noseri=$this->m_p_kendaraan->get_serial_gol1();
 			}
-			elseif($jg=='Gol.2'){
+			elseif($jg=='2'){
 				$noseri=$this->m_p_kendaraan->get_serial_gol2();
 			}
-			elseif($jg=='Gol.3'){
+			elseif($jg=='3'){
 				$noseri=$this->m_p_kendaraan->get_serial_gol3();
 			}
-			elseif($jg=='Gol.4'){
+			elseif($jg=='4'){
 				$noseri=$this->m_p_kendaraan->get_serial_gol4();
 			}
-			elseif($jg=='Gol.5'){
+			elseif($jg=='5'){
 				$noseri=$this->m_p_kendaraan->get_serial_gol5();
 			}
-			elseif($jg=='Gol.6'){
+			elseif($jg=='6'){
 				$noseri=$this->m_p_kendaraan->get_serial_gol6();
 			}
-			elseif($jg=='Gol.7'){
+			elseif($jg=='7'){
 				$noseri=$this->m_p_kendaraan->get_serial_gol7();
 			}
-			elseif($jg=='Gol.8'){
+			elseif($jg=='8'){
 				$noseri=$this->m_p_kendaraan->get_serial_gol8();
 			}
-			elseif($jg=='Gol.9'){
+			elseif($jg=='9'){
 				$noseri=$this->m_p_kendaraan->get_serial_gol9();
 			}
 			

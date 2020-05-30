@@ -61,6 +61,7 @@ $route['kmp']		= 'admin/kmp';
 $route['tiket']		= 'admin/tiket';
 $route['laporan_penumpang']		= 'admin/laporan_penumpang';
 $route['laporan_kendaraan']		= 'admin/laporan_kendaraan';
+$route['surat']		= 'admin/surat';
 
 //LOGIN / OUT ROUTE//
 $route['login']			= 'auth';

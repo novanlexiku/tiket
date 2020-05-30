@@ -11,6 +11,10 @@ class M_p_kendaraan extends CI_Model{
 		$hsl=$this->db->query("select * from tbl_lintasan order by lintasan_id asc");
 		return $hsl;
 	}
+	function tampil_kendaraan(){
+		$hsl=$this->db->query("select * from tbl_kendaraan order by kendaraan_id asc");
+		return $hsl;
+	}
 
 	function simpan_kendaraan($kode,$noseri,$nama,$alamat,$plat,$usia,$jk,$tgl,$jg,$kmp,$pl){
 		
@@ -18,47 +22,47 @@ class M_p_kendaraan extends CI_Model{
 		$this->db->trans_begin();
 		$this->db->trans_strict(FALSE);
 		$this->db->query("INSERT INTO tbl_p_kendaraan(kendaraan_tiket_seri,kendaraan_nama_pengemudi,kendaraan_plat_no,kendaraan_alamat,kendaraan_usia,kendaraan_jk,kendaraan_kmp,kendaraan_golongan,tanggal,kendaraan_penumpang_lain) VALUES ('$noseri','$nama','$plat','$alamat','$usia','$jk','$kmp','$jg','$tgl','$pl')");
-		if($jg=='Gol.1'){
+		if($jg=='1'){
 			$gol1='1';
 			$this->db->query("update tbl_kmp set kmp_tiketgol1=kmp_tiketgol1-'$gol1' where kmp_id='$kode'");
 
 		}
-		elseif($jg=='Gol.2'){
+		elseif($jg=='2'){
 			$gol2='1';
 			$this->db->query("update tbl_kmp set kmp_tiketgol2=kmp_tiketgol2-'$gol2' where kmp_id='$kode'");
 
 		}
-		elseif($jg=='Gol.3'){
+		elseif($jg=='3'){
 			$gol3='1';
 			$this->db->query("update tbl_kmp set kmp_tiketgol3=kmp_tiketgol3-'$gol3' where kmp_id='$kode'");
 
 		}
-		elseif($jg=='Gol.4'){
+		elseif($jg=='4'){
 			$gol4='1';
 			$this->db->query("update tbl_kmp set kmp_tiketgol4=kmp_tiketgol4-'$gol4' where kmp_id='$kode'");
 
 		}
-		elseif($jg=='Gol.5'){
+		elseif($jg=='5'){
 			$gol5='1';
 			$this->db->query("update tbl_kmp set kmp_tiketgol5=kmp_tiketgol5-'$gol5' where kmp_id='$kode'");
 
 		}
-		elseif($jg=='Gol.6'){
+		elseif($jg=='6'){
 			$gol6='1';
 			$this->db->query("update tbl_kmp set kmp_tiketgol6=kmp_tiketgol6-'$gol6' where kmp_id='$kode'");
 
 		}
-		elseif($jg=='Gol.7'){
+		elseif($jg=='7'){
 			$gol7='1';
 			$this->db->query("update tbl_kmp set kmp_tiketgol7=kmp_tiketgol7-'$gol7' where kmp_id='$kode'");
 
 		}
-		elseif($jg=='Gol.8'){
+		elseif($jg=='8'){
 			$gol8='1';
 			$this->db->query("update tbl_kmp set kmp_tiketgol8=kmp_tiketgol8-'$gol8' where kmp_id='$kode'");
 
 		}
-		elseif($jg=='Gol.9'){
+		elseif($jg=='9'){
 			$gol9='1';
 			$this->db->query("update tbl_kmp set kmp_tiketgol9=kmp_tiketgol9-'$gol9' where kmp_id='$kode'");
 

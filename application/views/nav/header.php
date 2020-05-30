@@ -137,12 +137,12 @@
                 <span class="nav-link-text">Kendaraan</span>
               </a>
             </li>
-            <!-- <li class="nav-item">
-              <a class="nav-link" href="#" target="_blank">
-                <i class="ni ni-palette"></i>
-                <span class="nav-link-text">Lintasan</span>
+            <li class="nav-item">
+              <a class="nav-link" href="<?php echo base_url().'surat';?>">
+                <i class="ni ni-collection"></i>
+                <span class="nav-link-text">Surat</span>
               </a>
-            </li> -->
+            </li>
           </ul>
 					<?php } elseif ($this->session->userdata('user_level')=='2') { ?>
 					<!-- Nav items -->
@@ -210,12 +210,12 @@
                 <span class="nav-link-text">Kendaraan</span>
               </a>
             </li>
-            <!-- <li class="nav-item">
-              <a class="nav-link" href="#" target="_blank">
-                <i class="ni ni-palette"></i>
-                <span class="nav-link-text">Lintasan</span>
+            <li class="nav-item">
+              <a class="nav-link" href="<?php echo base_url().'surat';?>">
+                <i class="ni ni-collection"></i>
+                <span class="nav-link-text">Surat</span>
               </a>
-            </li> -->
+            </li>
           </ul>
 					<?php } ?>
         </div>
