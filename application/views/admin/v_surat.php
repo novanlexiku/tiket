@@ -41,7 +41,7 @@
                 <tbody>
 
                     <tr>
-                        <td style="text-align:center;vertical-align:middle">3</td>
+                        <td style="text-align:center;vertical-align:middle">1</td>
                         <td style="vertical-align:middle;">Surat Jalan</td>
                         <td style="text-align:center;">
                             <a class="btn btn-sm btn-default" href="#surat_perlintasan" data-toggle="modal"><span class="fa fa-print"></span> Print</a>
