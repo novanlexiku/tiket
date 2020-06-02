@@ -98,7 +98,14 @@
                     </div>
 										<hr class="my-2" />
 
-										
+								<div class="row">
+									<div class="col-md-12">
+									<div class="form-group">
+										<label class="form-control-label" for="input-nama">Nama Pelabuhan</label>
+										<input name="berangkat" class="form-control" type="text" placeholder="Masukkan Nama" required>
+									</div>
+									</div>
+								</div>		
 								<div class="row">
 									<div class="col-md-12">
 									<div class="form-group">

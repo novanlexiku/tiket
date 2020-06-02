@@ -1,6 +1,6 @@
 <html lang="en" moznomarginboxes mozdisallowselectionprint>
 <head>
-    <title>Laporan Penumpang Perlintasan</title>
+    <title>Surat Jalan</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="<?php echo base_url('assets/css/laporan.css')?>"/>
 </head>
@@ -13,6 +13,7 @@
 </table>
 <?php
     $b=$lintasan->row_array();
+    $c=$surat->row_array();
 ?>
 <table border="0" align="center" style="width:800px; border:none;margin-top:5px;margin-bottom:0px;">
 <tr>
@@ -21,7 +22,7 @@
 </tr>
 <tr>
 <th style="text-align:left;width:100px;">BERANGKAT DARI PELABUHAN</th>
-<td style="text-align:left;">: BATULICIN/TANJUNG SERDANG</td>
+<td style="text-align:left;">: <?php echo $c['surat_berangkat'];?></td>
 </tr>
 <tr>
 <th colspan="0" style="text-align:left;width:200px;">TANGGAL</th>
@@ -136,16 +137,7 @@
         <td></td>
 </table>
 <table align="center" style="width:700px; border:none;margin-top:5px;margin-bottom:20px;">
-<?php
-$no=0;
-								
-    foreach ($surat->result_array() as $i) {
-        $no++;
-        $petugas=$i['surat_petugas'];
-        $nahkoda=$i['surat_nahkoda'];
-        $manager=$i['surat_manager'];
-        $syahbandar=$i['surat_syahbandar'];
-?>
+
     <tr>
 		<td align="center">Yang Membuat</td>
         <td align="center">Mengetahui</td>
@@ -162,8 +154,8 @@ $no=0;
     <td><br/><br/><br/><br/></td>
     </tr>
     <tr>
-		<td align="center">( <?php echo $petugas;?> )</td>
-        <td align="center">( <?php echo $nahkoda;?> )</td>
+		<td align="center">( <?php echo $c['surat_petugas'];?> )</td>
+        <td align="center">( <?php echo $c['surat_nahkoda'];?> )</td>
     </tr>
     <tr>
         <td align="center"></td>
@@ -187,8 +179,8 @@ $no=0;
     <td><br/><br/><br/><br/></td>
     </tr>
     <tr>
-		<td align="center">( <?php echo $manager;?> )</td>
-        <td align="center">( <?php echo $syahbandar;?> )</td>
+		<td align="center">( <?php echo $c['surat_manager'];?> )</td>
+        <td align="center">( <?php echo $c['surat_syahbandar'];?> )</td>
     </tr>
     <tr>
         <td align="center"></td>
@@ -201,7 +193,6 @@ $no=0;
     <tr>
         <th align="left"></th>
     </tr>
-	<?php }?>
 </table>
 </div>
 </body>

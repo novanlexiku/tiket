@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class auth_model extends CI_Model {
+class Auth_model extends CI_Model {
 
 	private $table = "tbl_user";
 	private $_data = array();

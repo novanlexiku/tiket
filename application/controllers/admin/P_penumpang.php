@@ -35,39 +35,26 @@ class P_penumpang extends CI_Controller{
 			$jt=$this->input->post('jenis_tiket');
 			$kmp=$this->input->post('nama_kapal');
 			$passport=$this->input->post('passport');
-			if($jt=='Ekonomi Anak'){
+			if($usia<='5'&&$jt=='Ekonomi'){
 				$noseri=$this->m_penumpang->get_serial_eko_anak();
 			}
-			elseif($jt=='Ekonomi Dewasa'){
+			elseif($usia>'5'&&$jt=='Ekonomi'){
 				$noseri=$this->m_penumpang->get_serial_eko_dewasa();
 			}
-			elseif($jt=='Bisnis Anak'){
+			elseif($usia<='5'&&$jt=='Bisnis'){
 				$noseri=$this->m_penumpang->get_serial_bis_anak();
 			}
-			elseif($jt=='Bisnis Dewasa'){
+			elseif($usia>'5'&&$jt=='Bisnis'){
 				$noseri=$this->m_penumpang->get_serial_bis_dewasa();
 			}
-			elseif($jt=='Vip Anak'){
+			elseif($usia<='5'&&$jt=='Vip'){
 				$noseri=$this->m_penumpang->get_serial_vip_anak();
 			}
-			elseif($jt=='Vip Dewasa'){
+			elseif($usia>'5'&&$jt=='Vip'){
 				$noseri=$this->m_penumpang->get_serial_vip_dewasa();
 			}
-			if($usia>'12'&&$jt=='Ekonomi Dewasa'){
-				$jtekodw='1';
-			}elseif($usia<'12'&&$jt=='Ekonomi Anak'){
-				$jtekoaa='1';
-			}elseif($usia>'12'&&$jt=='Bisnis Dewasa'){
-				$jtbisdw='1';
-			}elseif($usia<'12'&&$jt=='Bisnis Anak'){
-				$jtbisaa='1';
-			}elseif($usia>'12'&&$jt=='Vip Dewasa'){
-				$jtvipdw='1';
-			}elseif($usia<'12'&&$jt=='Vip Anak'){
-				$jtvipaa='1';
-			} 
-			$this->m_penumpang->simpan_penumpang($kode,$noseri,$nama,$alamat,$usia,$jk,$tgl,$jt,$kmp,$jtekodw,$jtekoaa,$jtbisdw,$jtbisaa,$jtvipdw,$jtvipaa,$passport);
-			 echo $this->session->set_flashdata('msg','tambahpenumpang');
+			$this->m_penumpang->simpan_penumpang($kode,$noseri,$nama,$alamat,$usia,$jk,$tgl,$jt,$kmp,$passport);
+			echo $this->session->set_flashdata('msg','tambahpenumpang');
 			redirect('penumpang');
 		}else{
 			echo "Halaman tidak ditemukan";

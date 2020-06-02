@@ -5,21 +5,19 @@ class M_surat extends CI_Model{
 		$hsl=$this->db->query("SELECT p.penumpang_tiket_seri,DATE_FORMAT(tanggal,'%d %M %Y') AS tanggal,p.penumpang_tiket_seri,p.penumpang_nama,p.penumpang_alamat,p.penumpang_usia,p.penumpang_jk,p.penumpang_kmp,k.kmp_id,k.kmp_nama,k.kmp_lintasan_id,l.lintasan_id,l.lintasan_nama,p.penumpang_tiket,p.penumpang_passport FROM tbl_penumpang p, tbl_kmp k, tbl_lintasan l WHERE k.kmp_lintasan_id='$linid' and DATE(tanggal)='$tanggal' and p.penumpang_kmp = k.kmp_id and k.kmp_lintasan_id = l.lintasan_id ORDER BY tanggal");
 		return $hsl;
 	}
-	function simpan_surat($petugas,$nahkoda,$manager,$syahbandar){
-		date_default_timezone_set('Asia/Jakarta');
-		$now = date('Y-m-d H:i:s');
-		$hsl=$this->db->query("INSERT INTO tbl_surat(surat_petugas,surat_nahkoda,surat_manager,surat_syahbandar,tanggal) VALUES ('$petugas','$nahkoda','$manager','$syahbandar','$now')");
+	function simpan_surat($berangkat,$petugas,$nahkoda,$manager,$syahbandar,$tanggal){
+		$hsl=$this->db->query("INSERT INTO tbl_surat(surat_berangkat,surat_petugas,surat_nahkoda,surat_manager,surat_syahbandar,tanggal) VALUES ('$berangkat','$petugas','$nahkoda','$manager','$syahbandar','$tanggal')");
 		return $hsl;
 	}
 	function tampil_surat($tanggal){
-		$hsl=$this->db->query("SELECT * FROM tbl_surat WHERE DATE(tanggal)='$tanggal'");
+		$hsl=$this->db->query("SELECT surat_id,surat_berangkat,surat_petugas,surat_nahkoda,surat_manager,surat_syahbandar,DATE_FORMAT(tanggal,'%d %M %Y') FROM tbl_surat WHERE DATE(tanggal)='$tanggal'");
 		return $hsl;
 	}
 
 	function get_total_dewasa($linid,$tanggal){
 		$this->db->select('*');
 		$this->db->from('tbl_penumpang');
-		$this->db->where('penumpang_usia >',13);
+		$this->db->where('penumpang_usia >',5);
 		$this->db->where('tanggal=',$tanggal);
 		$this->db->select('kmp_id,kmp_lintasan_id');
         $this->db->join('tbl_kmp', 'penumpang_kmp=kmp_id');
@@ -29,7 +27,7 @@ class M_surat extends CI_Model{
 	function get_total_anak($linid,$tanggal){
 		$this->db->select('*');
 		$this->db->from('tbl_penumpang');
-		$this->db->where('penumpang_usia <',13);
+		$this->db->where('penumpang_usia <=',5);
 		$this->db->where('tanggal=',$tanggal);
 		$this->db->select('kmp_id,kmp_lintasan_id');
         $this->db->join('tbl_kmp', 'penumpang_kmp=kmp_id');

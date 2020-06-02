@@ -12,17 +12,36 @@ class M_penumpang extends CI_Model{
 		return $hsl;
 	}
 
-	function simpan_penumpang($kode,$noseri,$nama,$alamat,$usia,$jk,$tgl,$jt,$kmp,$jtekodw,$jtekoaa,$jtbisdw,$jtbisaa,$jtvipdw,$jtvipaa,$passport){
+	function simpan_penumpang($kode,$noseri,$nama,$alamat,$usia,$jk,$tgl,$jt,$kmp,$passport){
 
 		$hsl=
 		$this->db->trans_start();
+		if($usia>'5'&&$jt=='Ekonomi'){
+			$jtekodw='1';
+			$jt='Ekonomi Dewasa';
+			$this->db->query("update tbl_kmp set kmp_tiketekodw=kmp_tiketekodw-'$jtekodw' where kmp_id='$kode'");
+		}elseif($usia<='5'&&$jt=='Ekonomi'){
+			$jtekoaa='1';
+			$jt='Ekonomi Anak';
+			$this->db->query("update tbl_kmp set kmp_tiketekoaa=kmp_tiketekoaa-'$jtekoaa' where kmp_id='$kode'");
+		}elseif($usia>'5'&&$jt=='Bisnis'){
+			$jtbisdw='1';
+			$jt='Bisnis Dewasa';
+			$this->db->query("update tbl_kmp set kmp_tiketbisdw=kmp_tiketbisdw-'$jtbisdw' where kmp_id='$kode'");
+		}elseif($usia<='5'&&$jt=='Bisnis'){
+			$jtbisaa='1';
+			$jt='Bisnis Anak';
+			$this->db->query("update tbl_kmp set kmp_tiketbisaa=kmp_tiketbisaa-'$jtbisaa' where kmp_id='$kode'");
+		}elseif($usia>'5'&&$jt=='Vip'){
+			$jtvipdw='1';
+			$jt='Eksekutif Dewasa';
+			$this->db->query("update tbl_kmp set kmp_tiketvipdw=kmp_tiketvipdw-'$jtvipdw' where kmp_id='$kode'");
+		}elseif($usia<='5'&&$jt=='Vip'){
+			$jtvipaa='1';
+			$jt='Eksekutif Anak';
+			$this->db->query("update tbl_kmp set kmp_tiketvipaa=kmp_tiketvipaa-'$jtvipaa' where kmp_id='$kode'");
+		}
 		$this->db->query("INSERT INTO tbl_penumpang(penumpang_tiket_seri,penumpang_nama,penumpang_alamat,penumpang_usia,penumpang_jk,penumpang_kmp,penumpang_tiket,tanggal,penumpang_passport) VALUES ('$noseri','$nama','$alamat','$usia','$jk','$kmp','$jt','$tgl','$passport')");
-		$this->db->query("update tbl_kmp set kmp_tiketekodw=kmp_tiketekodw-'$jtekodw' where kmp_id='$kode'");
-		$this->db->query("update tbl_kmp set kmp_tiketekoaa=kmp_tiketekoaa-'$jtekoaa' where kmp_id='$kode'");
-		$this->db->query("update tbl_kmp set kmp_tiketbisdw=kmp_tiketbisdw-'$jtbisdw' where kmp_id='$kode'");
-		$this->db->query("update tbl_kmp set kmp_tiketbisaa=kmp_tiketbisaa-'$jtbisaa' where kmp_id='$kode'");
-		$this->db->query("update tbl_kmp set kmp_tiketvipdw=kmp_tiketvipdw-'$jtvipdw' where kmp_id='$kode'");
-		$this->db->query("update tbl_kmp set kmp_tiketvipaa=kmp_tiketvipaa-'$jtvipaa' where kmp_id='$kode'");
 		$this->db->trans_complete(); 
 		return $hsl;
 	}

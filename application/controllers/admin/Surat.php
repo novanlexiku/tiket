@@ -32,11 +32,12 @@ class Surat extends CI_Controller{
 	function surat_jalan(){
 		$linid=$this->input->post('lintasan');
 		$tanggal=$this->input->post('tgl');
+		$berangkat=$this->input->post('berangkat');
 		$petugas=$this->input->post('nama_petugas');
 		$nahkoda=$this->input->post('nama_nahkoda');
 		$manager=$this->input->post('nama_manager');
 		$syahbandar=$this->input->post('nama_syahbandar');
-
+		$this->m_surat->simpan_surat($berangkat,$petugas,$nahkoda,$manager,$syahbandar,$tanggal);
 		$x = array(
 			'lintasan' => $this->m_laporan->get_data_penumpang_perlintasan($linid,$tanggal),
 			'dewasa' => $this->m_surat->get_total_dewasa($linid,$tanggal),
@@ -52,8 +53,6 @@ class Surat extends CI_Controller{
 			'gol9' => $this->m_surat->get_total_gol9($linid,$tanggal),
 			'surat' => $this->m_surat->tampil_surat($tanggal)
 		);
-		
-		$this->m_surat->simpan_surat($petugas,$nahkoda,$manager,$syahbandar);
 		$this->load->view('admin/surat/v_surat_jalan',$x);
 	}
 	 
