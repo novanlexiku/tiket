@@ -52,14 +52,6 @@
 
                     <tr>
                         <td style="text-align:center;vertical-align:middle">2</td>
-                        <td style="vertical-align:middle;">Laporan Kendaraan PerTanggal</td>
-                        <td style="text-align:center;">
-                            <a class="btn btn-sm btn-default" href="#lap_kendaraan_pertanggal" data-toggle="modal"><span class="fa fa-print"></span> Print</a>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td style="text-align:center;vertical-align:middle">3</td>
                         <td style="vertical-align:middle;">Laporan Kendaraan PerLintasan</td>
                         <td style="text-align:center;">
                             <a class="btn btn-sm btn-default" href="#lap_kendaraan_perlintasan" data-toggle="modal"><span class="fa fa-print"></span> Print</a>
