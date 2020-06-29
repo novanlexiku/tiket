@@ -192,7 +192,7 @@
 <script>
       $.fn.datepicker.defaults.format = "mm/dd/yyyy";
      $('.datepicker').datepicker({
-         startDate: new Date()
+         
      });
  </script>
 <script type="text/javascript">
