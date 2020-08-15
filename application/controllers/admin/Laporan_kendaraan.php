@@ -44,5 +44,5 @@ class Laporan_kendaraan extends CI_Controller{
 		$x['lintasan']=$this->m_laporan->get_data_kendaraan_perlintasan($linid,$tanggal);
 		$this->load->view('admin/laporan/v_lap_kendaraan_perlintasan',$x);
 	}
-	
+	 
 }

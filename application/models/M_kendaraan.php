@@ -21,4 +21,5 @@ class M_kendaraan extends CI_Model{
 		return $hsl;
 	}
 
+
 }
