@@ -1,7 +1,10 @@
 <html lang="en" moznomarginboxes mozdisallowselectionprint>
+<?php
+$b = $lintasan->row_array();
+?>
 
 <head>
-	<title>Laporan Daftar Penumpang Pada Kendaraan dan Kendaraan</title>
+	<title>Laporan Daftar Penumpang Pada Kendaraan dan Kendaraan <?php echo $b['tanggal']; ?></title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="<?php echo base_url('assets/css/laporan.css') ?>" />
 </head>
@@ -13,9 +16,7 @@
     <td><img src="<?php// echo base_url().'assets/img/kop_surat.png'?>"/></td>
 </tr>-->
 		</table>
-		<?php
-		$b = $lintasan->row_array();
-		?>
+
 		<table border="0" align="center" style="width:800px; border:none;margin-top:5px;margin-bottom:0px;">
 			<tr>
 				<td colspan="2" style="width:800px;paddin-left:20px;">
@@ -44,11 +45,9 @@
 			</tr>
 		</table>
 
-		<table border="1" align="center" style="width:900px;margin-bottom:20px;">
+		<table border="1" align="center" style="width:800px;margin-bottom:20px;">
 			<thead>
-				<tr>
-					<th colspan="11" style="text-align:left;"></th>
-				</tr>
+
 				<tr>
 					<th style="width:50px;">No</th>
 					<th>No Seri Tiket</th>
@@ -65,9 +64,10 @@
 			<tbody>
 				<?php
 				$no = 0;
-
+				$total = 0;
 				foreach ($penumpang->result_array() as $i) {
 					$no++;
+					$total++;
 					$noseri = $i['penumpang_tiket_seri'];
 					$nama = $i['penumpang_nama'];
 					$alamat = $i['penumpang_alamat'];
@@ -91,7 +91,19 @@
 						<td style="text-align:right;"><?php echo $tgl; ?></td>
 						<td style="text-align:right;"><?php echo $pass; ?></td>
 					</tr>
+
 				<?php } ?>
+				<tr>
+					<th colspan="2">Jumlah</th>
+					<th><?php echo $total; ?> Orang</th>
+					<th></th>
+					<th></th>
+					<th></th>
+					<th></th>
+					<th></th>
+					<th></th>
+					<th></th>
+				</tr>
 			</tbody>
 
 		</table>

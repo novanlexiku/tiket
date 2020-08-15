@@ -361,12 +361,14 @@
 	}
 	?>
 
-	<!-- ============ MODAL TAMBAH =============== -->
+	<!-- ============ MODAL CETAK =============== -->
 	<?php
 	foreach ($p_kendaraan->result_array() as $a) {
 		$id = $a['kmp_id'];
 		$nm = $a['kmp_nama'];
 		$kenid = $a['kendaraan_no'];
+		$kenam = $a['kendaraan_nama'];
+		$plat = $a['kendaraan_plat_no'];
 		$kenser = $a['kendaraan_tiket_seri'];
 		$tanggal = $a['tanggal'];
 		$kepen = $a['kendaraan_nama_pengemudi'];
@@ -378,26 +380,30 @@
 					<div class="modal-header">
 						<h3 class="modal-title" id="myModalLabel">Cetak Data Penumpang</h3>
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-						<form class="form-horizontal" method="post" action="<?php echo base_url() . 'index.php/admin/p_kendaraan/lap_kendaraan' ?>" target="_blank">
-							<div class="modal-body">
-								<input name="no_seri" type="hidden" value="<?php echo $kenser; ?>">
-								<input name="kmp" type="hidden" value="<?php echo $kenkmp; ?>">
-								<input name="tgl" type="hidden" value="<?php echo $tanggal; ?>">
-							</div>
 
-							<div class="modal-footer">
-								<button class="btn btn-sm" data-dismiss="modal" aria-hidden="true">Tutup</button>
-								<button class="btn btn-sm btn-info"><span class="fa fa-print"></span> Cetak</button>
-							</div>
-						</form>
 					</div>
 
+					<form class="form-horizontal" method="post" action="<?php echo base_url() . 'index.php/admin/p_kendaraan/lap_kendaraan' ?>" target="_blank">
+						<div class="modal-body">
+							<p class="modal-title" id="myModalLabel">Cetak Data Penumpang Kendaraan Seri Tiket:<?php echo $kenser; ?> dengan Pengemudi: <?php echo $kepen; ?> </p>
+							<input name="no_seri" type="hidden" value="<?php echo $kenser; ?>">
+							<input name="kmp" type="hidden" value="<?php echo $kenkmp; ?>">
+							<input name="tgl" type="hidden" value="<?php echo $tanggal; ?>">
+						</div>
+
+						<div class="modal-footer">
+							<button class="btn btn-sm" data-dismiss="modal" aria-hidden="true">Tutup</button>
+							<button class="btn btn-sm btn-info"><span class="fa fa-print"></span> Cetak</button>
+						</div>
+					</form>
 				</div>
 			</div>
 		</div>
 	<?php
 	}
 	?>
+
+
 
 	<!-- Footer -->
 	<footer class="footer">

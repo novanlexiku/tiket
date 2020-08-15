@@ -23,7 +23,7 @@ class M_p_kendaraan extends CI_Model
 
 	function tampil_p_kendaraan()
 	{
-		$hsl = $this->db->query("select k.kendaraan_no,	k.kendaraan_tiket_seri,	k.kendaraan_nama_pengemudi,	k.kendaraan_plat_no, k.kendaraan_alamat, k.kendaraan_usia, k.kendaraan_jk, k.kendaraan_kmp,	k.kendaraan_golongan, k.tanggal, k.kendaraan_penumpang_lain, kmp.kmp_id, kmp.kmp_nama from tbl_p_kendaraan k, tbl_kmp kmp where k.kendaraan_kmp = kmp.kmp_id order by tanggal desc");
+		$hsl = $this->db->query("select k.kendaraan_no,	k.kendaraan_tiket_seri,	k.kendaraan_nama_pengemudi,	k.kendaraan_plat_no, k.kendaraan_alamat, k.kendaraan_usia, k.kendaraan_jk, k.kendaraan_kmp,	k.kendaraan_golongan, k.tanggal, k.kendaraan_penumpang_lain, kmp.kmp_id, kmp.kmp_nama, g.kendaraan_id, g.kendaraan_nama from tbl_p_kendaraan k, tbl_kmp kmp, tbl_kendaraan g where k.kendaraan_kmp = kmp.kmp_id and k.kendaraan_golongan=g.kendaraan_id order by tanggal desc");
 		return $hsl;
 	}
 
