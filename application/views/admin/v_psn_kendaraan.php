@@ -93,7 +93,7 @@
 					<h2 class="mb-0">Daftar Kendaraan</h3>
 				</div>
 				<div class="table-responsive">
-					<table class="table table-bordered table-condensed" style="font-size:11px;" id="mydata">
+					<table class="table table-bordered" style="font-size:11px;" id="mydata">
 						<thead class="thead-light">
 							<tr>
 								<th scope="col" style="text-align:center;width:40px;">No</th>
